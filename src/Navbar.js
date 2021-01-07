@@ -10,7 +10,7 @@ export default function Navbar(props) {
   return (
     <nav className="navbar">
       <NavLink to="/" className="nav-brand">
-        React/ReactRouterDom
+        React/React-Router
       </NavLink>
       <ul>
         <li className="nav-item">
