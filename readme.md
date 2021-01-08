@@ -1,14 +1,21 @@
-# Final Project following React Tutorial, using React Router
+# Final Project React Tutorial /JJ, using React Router
+
+## React Router
+
+## State managed by React (state lifting and prop drilling)
 
 ## Docker running **dev mode** reverse proxied by Nginx
 
-- Node container running the code with `yarn start`
+Run 2 containers, one **Node/Yarn** and the reverse proxy **Nginx**
 
-- Nginx container serving on http://localhost:8080. Created folder
+- run two services Node/React/app + reverse proxy Nginx on network with `docker-compose`.
 
-- code is bind mounted
+> Note: the React app service is named "app" and the Nginx.conf file has `proxy_pass http://app:3000` where we use the service name "app".
+> Pay attention to ngix.conf with:
+> `listen 80 default_server; resolver 127.0.0.11 valid=1s;`
 
-- run services Nginx + Node/React/app on network with `docker-compose`.
-  > Note: the React aoo service is named "app" and the Nginx.conf file has `proxy_pass http://app:3000` where we use the service name "app".
+- the Node container runs the code with `yarn start`
 
-Modify the code and <code>CTRL R</code> to update
+- the Nginx container reverse proxies on http://localhost:8080. Created folder
+
+- code is bind mounted for live code with <code>CTRL R</code> to update

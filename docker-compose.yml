@@ -5,13 +5,15 @@ services:
       context: ./webserver
       dockerfile: Dockerfile
     container_name: "nginx"
-    
+    volumes:
+      - .:/usr/share/nginx/html
     ports:
       - 8080:80
       - 443:443
   app: # this name is used in Nginx's "proxy_pass"  directive
-    build: .
-    ports:
-      - 3000:3000
+    image: ndrean/react-app-superm:dev-r-rr
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - .:/app
